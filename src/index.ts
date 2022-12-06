@@ -1,17 +1,13 @@
 import { Server } from './server';
 import { checkIfUserIsLogIn, showLoginForm, showMainContent } from './helpers';
-import type { IUser, IAlbum, IPhoto, DataBase } from './fetchedDataTypes';
+import type { IUser, IPhoto, DataBase } from './fetchedDataTypes';
 
 import {
-  container,
-  mainContent,
   loginButton,
-  loginForm,
   loginInput,
   passwordInput,
   loginInfo,
   logOutButton,
-  userDataWrapper,
   userAlbumsWrapper,
   displayUserName,
   userPhotosWrapper,
@@ -40,9 +36,11 @@ const renderPhotos = (photos: IPhoto[]) => {
 
   backButton.addEventListener('click', () => {
     if (userAlbumsWrapper && userPhotosWrapper != null)
-      userAlbumsWrapper.style.display = 'block';
-      
+    userAlbumsWrapper.style.display = 'block';
+    userPhotosWrapper!.innerHTML = '';
   });
+
+  userPhotosWrapper!.style.display = 'block'
 
   userPhotosWrapper?.appendChild(backButton);
 
@@ -89,9 +87,8 @@ const toggleDashboard = ({
   id: IUser['id'];
   username: IUser['username'];
 }) => {
-  if (userAlbumsWrapper?.classList.contains('hide')) {
-    userAlbumsWrapper.classList.toggle('hide');
-    userAlbumsWrapper.style.display = 'none';
+  if (userAlbumsWrapper) {
+    userAlbumsWrapper.innerHTML = ''
   }
 
   renderAlbums(id);
@@ -111,6 +108,7 @@ const handleLogin = async (e: Event) => {
 
       if (isValid && user) {
         const { username, id } = user;
+
         showMainContent();
         toggleDashboard({ id, username });
       } else {
@@ -123,7 +121,6 @@ const handleLoggout = () => {
   document.cookie = 'User=; max-age=-; path=/;';
   showLoginForm();
 };
-
 window.addEventListener('load', checkIfUserIsLogIn);
 logOutButton?.addEventListener('click', handleLoggout);
 loginButton?.addEventListener('click', handleLogin);

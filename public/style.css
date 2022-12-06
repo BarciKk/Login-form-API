@@ -79,7 +79,7 @@ h2{
     display: 'none';
 }
 .albums-header{
-    font-size: 25;
+    font-size: 25px;
     padding: 10px;
 }
 .album{
@@ -104,4 +104,14 @@ h2{
 }
 .albums-header{
     font-size: 30px;
+}
+.back-to-albums-button{
+    border: 1px solid #b373b3;
+    border-radius: 2px;
+    padding: 5px;
+    background-color: rgb(119, 119, 165);
+    cursor: pointer;
+    position: absolute;
+    top: 60px;
+
 }

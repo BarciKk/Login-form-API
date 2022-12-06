@@ -11,7 +11,7 @@ const userAlbumsWrapper = document.querySelector<HTMLDivElement>(".user-albums-w
 const userPhotosWrapper = document.querySelector<HTMLDivElement>(".user-photos-wrapper")
 const displayUserName = document.querySelector<HTMLDivElement>(".display-user-name");
 const userDataHolder = document.querySelector<HTMLDivElement>(".user-data-holder");
-const greetingUserHolder = document.querySelector<HTMLDivElement>(".user-data");
+const greetingUserHolder = document.querySelector<HTMLDivElement>(".user-name");
 export {
   container,
   mainContent,

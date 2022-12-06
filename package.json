@@ -8,6 +8,8 @@
   },
   "dependencies": {
     "canvas-confetti": "^1.2.0",
+    "node": "^19.2.0",
+    "src": "^1.1.2",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
