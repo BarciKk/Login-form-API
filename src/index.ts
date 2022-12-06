@@ -117,10 +117,12 @@ const handleLogin = async (e: Event) => {
     }
   }
 };
+
 const handleLoggout = () => {
   document.cookie = 'User=; max-age=-; path=/;';
   showLoginForm();
 };
+
 window.addEventListener('load', checkIfUserIsLogIn);
 logOutButton?.addEventListener('click', handleLoggout);
 loginButton?.addEventListener('click', handleLogin);
